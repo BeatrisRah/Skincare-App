@@ -1,7 +1,9 @@
-import { Text } from "react-native";
+import { SafeAreaView, Text } from "react-native";
 
 export default function Weekly() {
     return (
-        <Text>Weeks</Text>
+        <SafeAreaView>
+            <Text>HI</Text>
+        </SafeAreaView>
     );
 }

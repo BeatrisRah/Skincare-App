@@ -1,20 +1,31 @@
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const list: [] = [
-    {name:'Cleanser'}
-]
+// const list: [] = [
+//     {name:'Cleanser'}
+// ]
 
 export default function Home() {
     return (
-        <SafeAreaView>
-            <View className="w-11/12 m-auto">
-                <Text>25/05/2025</Text>
-                <View>
+        <SafeAreaView className="relative">
+            <View className="bg-[#7acfc6] h-40 w-full absolute">
+                <Text className="text-2xl text-center pt-16 text-white">Tue 21</Text>
+            </View>
+
+            <View style={styles.content}>
                     
-                </View>
             </View>
 
         </SafeAreaView>
     );
 }
+
+const styles = StyleSheet.create({
+    content: {
+        backgroundColor: '#ffffff',
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
+        padding: 20,
+        flex: 1,
+        marginTop:40}
+    })
