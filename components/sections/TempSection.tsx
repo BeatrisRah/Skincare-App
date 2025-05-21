@@ -1,7 +1,7 @@
 import Feather from '@expo/vector-icons/Feather';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import React from 'react';
-import { View } from "react-native";
+import { Text, View } from "react-native";
 
 type step = {
     title: string,
@@ -10,8 +10,8 @@ type step = {
 
 type TemplateSectionProps = {
     "steps": {
-        'clenser'?: step[],
-        'sunscreen'?: step[],
+        clenser?: step[],
+        sunscreen?: step[],
     },
     "type": 'Morning' | 'Noon' | 'Evening'
 }
@@ -34,8 +34,14 @@ export default function TemplateSection({steps, type}: TemplateSectionProps) {
     return (
         <View>
             {type === 'Morning' && <Header icon={<Feather name="sunrise" size={24} color="black" />} title='Morning' />}
-            {type === 'Noon' && <Header icon={<FontAwesome name="sun-o" size={24} color="black" />} title='Morning' />}
-            {type === 'Evening' && <Header icon={<Feather name="moon" size={24} color="black" />} title='Morning' />}
+            {type === 'Noon' && <Header icon={<FontAwesome name="sun-o" size={24} color="black" />} title='Noon' />}
+            {type === 'Evening' && <Header icon={<Feather name="moon" size={24} color="black" />} title='Evening' />}
+            {/* TODO: Button for edit */}
+
+            {/* List? View? We will see */}
+            <View className={bgColor}>
+                {Object.keys(steps).length === 0 && <Text>No routine added...</Text>}
+            </View>
         </View>
     );
 }
