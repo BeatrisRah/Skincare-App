@@ -11,7 +11,7 @@ export default function Index() {
       }}
     >
       <Text className="text-3xl font-bold mb-4">Welcome!</Text>
-      <Link className="bg-blue-200 px-4 py-2 text-lg text-black" href="/home">
+      <Link className="bg-blue-200 px-4 py-2 text-lg text-black" href="/(home)">
         Next
       </Link>
     </View>
