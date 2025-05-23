@@ -33,7 +33,9 @@ export default function TemplateSection({steps, type}: TemplateSectionProps) {
 
             {/* List? View? We will see */}
             <View className={`${bgColor} min-h-10 rounded`}>
-                {Object.keys(steps).length === 0 && <Text className='p-2'>No routine added...</Text>}
+                {Object.keys(steps).length === 0 ? <Text className='p-2'>No routine added...</Text>:
+                Object.entries(steps).map(([name, steps]) => <Step key={name} title={name} />)}
+                
             </View>
         </View>
     );
@@ -44,6 +46,15 @@ function Header({icon, title}: {icon:React.ReactNode, title:string}){
         <View className='flex flex-row gap-2 items-center justify-center mb-2'>
             {icon}
             <Text className='text-2xl'>{title}</Text>
+        </View>
+    )
+}
+
+function Step({title}: {title:string}){
+    return(
+        <View>
+            {/* Drop down menu */}
+            <Text className='capitalize text-xl'>{title}</Text>
         </View>
     )
 }
