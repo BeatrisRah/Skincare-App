@@ -17,29 +17,22 @@ type TemplateSectionProps = {
 }
 
 export default function TemplateSection({steps, type}: TemplateSectionProps) {
-    let bgColor: string;
-    
-    switch(type){
-        case "Morning":
-            bgColor = 'bg-[#F7ECA2]'
-            break;
-        case "Evening":
-            bgColor = 'bg-[#6094D7]'
-            break;
-        case "Noon":
-            bgColor = 'bg-[#F7C7A2]'
-            break;
-    }
+    const bgColor =
+        type === "Morning"
+            ? "bg-[#F7ECA2]"
+            : type === "Noon"
+            ? "bg-[#F7C7A2]"
+            : "bg-[#6094D7]";
     
     return (
-        <View>
+        <View className='w-11/12 h-40 mx-auto'>
             {type === 'Morning' && <Header icon={<Feather name="sunrise" size={24} color="black" />} title='Morning' />}
             {type === 'Noon' && <Header icon={<FontAwesome name="sun-o" size={24} color="black" />} title='Noon' />}
             {type === 'Evening' && <Header icon={<Feather name="moon" size={24} color="black" />} title='Evening' />}
             {/* TODO: Button for edit */}
 
             {/* List? View? We will see */}
-            <View className={bgColor}>
+            <View className={`${bgColor} min-h-10`}>
                 {Object.keys(steps).length === 0 && <Text>No routine added...</Text>}
             </View>
         </View>
@@ -48,9 +41,9 @@ export default function TemplateSection({steps, type}: TemplateSectionProps) {
 
 function Header({icon, title}: {icon:React.ReactNode, title:string}){
     return (
-        <View>
+        <View className='flex flex-row gap-2 items-center justify-center mb-2'>
             {icon}
-            {title}
+            <Text className='text-2xl'>{title}</Text>
         </View>
     )
 }
