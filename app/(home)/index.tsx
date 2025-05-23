@@ -1,4 +1,5 @@
-import MorningSection from "@/components/sections/MorningSection";
+
+import TemplateSection from "@/components/sections/TempSection";
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -13,8 +14,11 @@ export default function Home() {
                 <Text className="text-2xl text-center pt-16 text-white">Tue 21</Text>
             </View>
 
-            <View className="bg-white rounded-t-[30px] p-5 mt-10">
-                <MorningSection />
+            <View className="bg-white rounded-t-[30px] px-2 py-5 mt-10">
+                <TemplateSection steps={{}} type={"Morning"} />
+                <TemplateSection steps={{}} type={"Noon" } />
+                <TemplateSection steps={{}} type={"Evening" } />
+
             </View>
 
         </SafeAreaView>

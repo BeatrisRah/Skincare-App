@@ -25,15 +25,15 @@ export default function TemplateSection({steps, type}: TemplateSectionProps) {
             : "bg-[#6094D7]";
     
     return (
-        <View className='w-11/12 h-40 mx-auto'>
+        <View className='w-11/12 mx-auto mb-5'>
             {type === 'Morning' && <Header icon={<Feather name="sunrise" size={24} color="black" />} title='Morning' />}
             {type === 'Noon' && <Header icon={<FontAwesome name="sun-o" size={24} color="black" />} title='Noon' />}
             {type === 'Evening' && <Header icon={<Feather name="moon" size={24} color="black" />} title='Evening' />}
             {/* TODO: Button for edit */}
 
             {/* List? View? We will see */}
-            <View className={`${bgColor} min-h-10`}>
-                {Object.keys(steps).length === 0 && <Text>No routine added...</Text>}
+            <View className={`${bgColor} min-h-10 rounded`}>
+                {Object.keys(steps).length === 0 && <Text className='p-2'>No routine added...</Text>}
             </View>
         </View>
     );
