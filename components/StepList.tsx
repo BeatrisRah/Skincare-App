@@ -27,12 +27,12 @@ export default function Step({title, index, steps}: StepProps){
             {toggleList && (
                 <Text>
                     {steps.map(s => (
-                        <View className=" bg-[#FBB860]/40 p-2 rounded-md w-full flex flex-row" key={s.title}>
-                            <Text>{s.title}</Text>
-                            <BouncyCheckbox 
+                        <View className=" bg-[#FBB860]/40 p-2 rounded-md w-full flex flex-row justify-between" key={s.title}>
+                            <Text className={`text-lg ${s.completed ? 'line-through' : ''}`}>{s.title}</Text>
+                            <BouncyCheckbox
                             isChecked={s.completed}
                             onPress={(isChecked: boolean) => {}}
-                            
+                            fillColor="#F39E30"
                             />
                         </View>
                     ))}
