@@ -1,6 +1,7 @@
 import { StepType } from "@/types/stepType";
 import { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 type StepProps = {
     title:string,
@@ -25,7 +26,16 @@ export default function Step({title, index, steps}: StepProps){
 
             {toggleList && (
                 <Text>
-                    {steps[0].title}
+                    {steps.map(s => (
+                        <View className=" bg-[#FBB860]/40 p-2 rounded-md w-full flex flex-row" key={s.title}>
+                            <Text>{s.title}</Text>
+                            <BouncyCheckbox 
+                            isChecked={s.completed}
+                            onPress={(isChecked: boolean) => {}}
+                            
+                            />
+                        </View>
+                    ))}
                 </Text>
             )}
         </>
