@@ -1,3 +1,4 @@
+import { SectionTypes } from "@/types/sectionTypes";
 import { StepType } from "@/types/stepType";
 import { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
@@ -7,11 +8,18 @@ type StepProps = {
     title:string,
     index:number
     steps: StepType[]
+    type: SectionTypes
 }
 
 
-export default function Step({title, index, steps}: StepProps){
+export default function Step({title, index, steps, type}: StepProps){
     const [toggleList, setToggleList] = useState<boolean>(false)
+    const acentColor = type === "Morning"
+        ? "bg-morning-box/40"
+        : type === "Noon"
+        ? "bg-noon-box/40"
+        : "bg-[#3559B4]/40";
+        
     return(
         <>
         <TouchableOpacity
@@ -27,12 +35,12 @@ export default function Step({title, index, steps}: StepProps){
             {toggleList && (
                 <Text>
                     {steps.map(s => (
-                        <View className=" bg-[#FBB860]/40 p-2 rounded-md w-full flex flex-row justify-between" key={s.title}>
+                        <View className={`${acentColor} p-2 rounded-md w-full flex flex-row justify-between`} key={s.title}>
                             <Text className={`text-lg ${s.completed ? 'line-through' : ''}`}>{s.title}</Text>
                             <BouncyCheckbox
                             isChecked={s.completed}
                             onPress={(isChecked: boolean) => {}}
-                            fillColor="#F39E30"
+                            fillColor={type === 'Morning' ? '#F39E30' : type === 'Noon'? '#EE7E42' : '#3559B4' }
                             />
                         </View>
                     ))}

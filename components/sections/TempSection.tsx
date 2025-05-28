@@ -1,3 +1,4 @@
+import { SectionTypes } from '@/types/sectionTypes';
 import { StepType } from '@/types/stepType';
 import Feather from '@expo/vector-icons/Feather';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
@@ -12,15 +13,15 @@ type TemplateSectionProps = {
         clenser?: StepType[],
         sunscreen?: StepType[],
     },
-    "type": 'Morning' | 'Noon' | 'Evening'
+    "type": SectionTypes
 }
 
 export default function TemplateSection({steps, type}: TemplateSectionProps) {
     const bgColor =
         type === "Morning"
-            ? "bg-[#F7ECA2]"
+            ? "bg-morning"
             : type === "Noon"
-            ? "bg-[#F7C7A2]"
+            ? "bg-noon"
             : "bg-[#6094D7]";
         
         const stepsCont = Object.keys(steps).length;
@@ -35,7 +36,7 @@ export default function TemplateSection({steps, type}: TemplateSectionProps) {
             {/* List? View? We will see */}
             <View className={`${bgColor} min-h-10 rounded p-2`}>
                 {stepsCont === 0 ? <Text className='p-2'>No routine added...</Text>:
-                Object.entries(steps).map(([name, s], i) => <Step key={name} title={name} index={i} steps={s} />)}
+                Object.entries(steps).map(([name, s], i) => <Step key={name} title={name} index={i} steps={s} type={type} />)}
                 
             </View>
         </View>
